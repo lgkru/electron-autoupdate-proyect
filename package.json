@@ -4,9 +4,11 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/lgkru/electron-autoupdate-proyect.git",
   "keywords": [
     "Electron",
     "quick",
@@ -16,7 +18,15 @@
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
+  "build": {
+    "appId": "enupal-electronv1",
+    "asar": true,
+    "win": {
+      "target": "NSIS"
+    }
+  },
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "~1.6.2",
+    "electron-builder": "^19.24.1"
   }
 }
