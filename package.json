@@ -7,7 +7,7 @@
       "start": "electron .","start:dev": "tsc && electron ./main.js",
       "build:tsc": "typings install && tsc",
       "build:pack": "build",
-      "build:publish": "build --publish always",
+      "publish": "build --publish always",
       "pack": "build --dir",
       "dist": "build"
     },
