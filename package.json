@@ -27,11 +27,11 @@
     "appId": "electronv1",
     "asar": true,
     "publish": {
-      "provider": "GitHub"
+      "provider": "github"
     },
     "win": {
       "publish": [
-        "GitHub"
+        "github"
       ]
     }
   },
