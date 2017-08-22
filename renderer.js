@@ -5,7 +5,7 @@
 var electron_auto_updater = require('electron-auto-updater');
 
 electron_auto_updater.autoUpdater.checkForUpdates();
-electron_auto_updater.autoUpdater.addListener("update-available", function (event) {
+electron_auto_updater.autoUpdater.addListener("update-available cambio", function (event) {
     log("A new update is available");
 });
 electron_auto_updater.autoUpdater.addListener("update-downloaded", function (event, releaseNotes, releaseName, releaseDate, updateURL) {
