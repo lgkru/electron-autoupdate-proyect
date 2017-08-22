@@ -1,40 +1,44 @@
-  {
-    "name": "electron-quick-start",
-    "version": "1.0.0",
-    "description": "A minimal Electron application",
-    "main": "main.js",
-    "scripts": {
-      "start": "electron .","start:dev": "tsc && electron ./main.js",
-      "build:tsc": "typings install && tsc",
-      "build:pack": "build",
-      "publish": "build --publish always",
-      "pack": "build --dir",
-      "dist": "build"
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:dev": "tsc && electron ./main.js",
+    "build:tsc": "typings install && tsc",
+    "build:pack": "build",
+    "publish": "build --publish always",
+    "pack": "build --dir",
+    "release": "build",
+    "dist": "build"
+  },
+  "repository": "https://github.com/lgkru/electron-autoupdate-proyect",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "build": {
+    "appId": "electronv1",
+    "asar": true,
+    "publish": {
+      "provider": "github"
     },
-    "repository": "https://github.com/lgkru/electron-autoupdate-proyect",
-    "keywords": [
-      "Electron",
-      "quick",
-      "start",
-      "tutorial",
-      "demo"
-    ],
-    "author": "GitHub",
-    "license": "CC0-1.0",
-    "build": {
-      "appId": "electronv1",
-      "asar": true,
-      "publish":{
-        "provider": "github"
-      },
-      "win": {
-        "publish":["github"]        
-      }
-    },
-    "devDependencies": {
-      "electron": "~1.6.2",
-      "electron-builder": "^19.24.1"
-    },
+    "win": {
+      "publish": [
+        "github"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "~1.6.2",
+    "electron-builder": "^19.24.1"
+  },
   "dependencies": {
     "electron-auto-updater": "^1.0.0"
   }

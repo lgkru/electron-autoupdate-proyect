@@ -26,3 +26,15 @@ build_script:
   - npm run release
 
 test: off
+
+environment:
+  access_token:
+    secure: gjg67z+qGi1FktAeQh6UDc09fHLl0voHvsbZU9u0WmNi89bL7TSvFyV/3LrJ0CS7
+
+on_success:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email "lgarzon@kruger.com.ec"
+  - git config --global user.name "lgkru"
+  - git commit ...
+  - git push ...
