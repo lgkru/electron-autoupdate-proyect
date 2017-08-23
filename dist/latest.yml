@@ -1,7 +1,7 @@
-version: 1.0.0
-releaseDate: '2017-08-21T21:54:29.338Z'
-path: electron-quick-start Setup 1.0.0.exe
+version: 3.0.0
+releaseDate: '2017-08-23T13:55:57.287Z'
+path: electron-quick-start Setup 3.0.0.exe
 sha512: >-
-  xrsVcqwKgpECRqZUWrNIIrbqaQkYkZ3cGguftcjjcZNpd/XBJO058t9iFJjkAMozFSChPnlrudfbWsDlNeqFfA==
-githubArtifactName: electron-quick-start-setup-1.0.0.exe
-sha2: 61fa08dcd1c1c72e778ced91a8b05681a2835b951d9b7467440a503a04fe5425
+  oYHACu4eESBZJhtJqmIuwilIh2m7xgdioSBmE8dbQgXeHQkC+x52TqMG4fZq2+AC/jPNV7EKV07oR37GeeLLuA==
+githubArtifactName: electron-quick-start-setup-3.0.0.exe
+sha2: 2ca7e3c7caf2f1bb7be83a22af344abfed8567c2326902072e41ebc12d81c581
