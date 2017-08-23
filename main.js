@@ -4,6 +4,8 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
+const {autoUpdater} = require("electron-updater");
+
 const path = require('path')
 const url = require('url')
 
@@ -58,3 +60,31 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+function sendStatusToWindow(text) {
+  //console.log.info(text);
+  mainWindow.webContents.send('message', text);
+}
+autoUpdater.on('checking-for-update', () => {
+  sendStatusToWindow('Checking for update...');
+})
+autoUpdater.on('update-available', (info) => {
+  sendStatusToWindow('Update available.');
+})
+autoUpdater.on('update-not-available', (info) => {
+  sendStatusToWindow('Update not available.');
+})
+autoUpdater.on('error', (err) => {
+  sendStatusToWindow('Error in auto-updater.');
+})
+autoUpdater.on('download-progress', (progressObj) => {
+  sendStatusToWindow("descargando..");
+})
+autoUpdater.on('update-downloaded', (info) => {
+  autoUpdater.quitAndInstall();
+  sendStatusToWindow('Update downloaded; will install in 5 seconds');
+});
+
+app.on('ready', function()  {
+  autoUpdater.checkForUpdates();
+});
