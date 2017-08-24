@@ -1,0 +1,41 @@
+version: 0.1.{build}
+
+platform:
+  - x64
+
+cache:
+  - node_modules
+  - app\node_modules
+  - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.electron'
+
+init:
+  - git config --global core.autocrlf input
+
+install:
+  - ps: Install-Product node 6 x64
+  - git reset --hard HEAD
+  - npm install npm -g
+  - npm install electron-builder@next # force install next version to test electron-builder
+  - npm install
+  - npm prune
+
+build_script:
+  - node --version
+  - npm --version
+  - npm run release
+
+test: off
+
+environment:
+  access_token:
+    secure: gjg67z+qGi1FktAeQh6UDc09fHLl0voHvsbZU9u0WmNi89bL7TSvFyV/3LrJ0CS7
+
+on_success:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email "lgarzon@kruger.com.ec"
+  - git config --global user.name "lgkru"
+  - git add .
+  - git commit -m ok
+  - git push -u origin master
